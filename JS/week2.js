@@ -50,8 +50,9 @@ console.log(clothesToWear);
 const class07Students = [];
 
 function addStudentToClass(studentName) {
-  if (studentName === "") {
-    return;}
+  if (!studentName.trim()) {
+    return "You have not provided a student name";
+    }
   if (class07Students.includes(studentName)) {
     console.log(`Student ${studentName} is already in the class`);
     return;}
