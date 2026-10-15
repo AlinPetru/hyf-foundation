@@ -1,16 +1,16 @@
 // Flight booking fullname function
 function getFullName(firstName, surname, useFormalName) {
-  if (firstName === '' || surname === '') {
+  if (!firstName.trim() || !surname.trim()) {
     return ''
   }
-  if (useFormalName === true) {
+  if (useFormalName) {
     return 'Lord' + ' ' + firstName + ' ' + surname
   }
   return firstName + ' ' + surname
 }
-let fullName1 = getFullName('Benjamin', 'Hughes', true)
-let fullName2 = getFullName('Benjamin', 'Hughes', false)
-let fullName3 = getFullName('Donald', 'Trumpinio', false)
+const fullName1 = getFullName('Benjamin', 'Hughes', true)
+const fullName2 = getFullName('Benjamin', 'Hughes', false)
+const fullName3 = getFullName('Donald', 'Trumpinio', false)
 console.log(fullName1)
 console.log(fullName2)
 console.log(fullName3)
