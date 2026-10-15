@@ -16,9 +16,9 @@ console.log(fullName3);
 
 // Event application
 function getEventWeekday(numberOfDays) {
-    let today = new Date();
-    let dayNumber = today.getDay();
-    let weekdays = [
+    const today = new Date();
+    const dayNumber = today.getDay();
+    const weekdays = [
         "Sunday",
         "Monday",
         "Tuesday",
@@ -26,7 +26,7 @@ function getEventWeekday(numberOfDays) {
         "Thursday",
         "Friday",
         "Saturday"];
-    let eventDayNumber = (dayNumber + numberOfDays) % 7;
+    const eventDayNumber = (dayNumber + numberOfDays) % 7;
     return weekdays[eventDayNumber];}
 console.log(getEventWeekday(9));
 console.log(getEventWeekday(2));
