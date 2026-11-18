@@ -6,7 +6,7 @@ FROM task;
 SELECT COUNT(*) AS invalid_due_date_count
 FROM task
 WHERE DATETIME(due_date) IS NULL
-   OR DATE(SUBSTR(due_date, 1, 10), '+0 days') IS NOT SUBSTR(due_date, 1, 10);
+   
 
 --Find all the tasks that are marked as done.
 SELECT task.*
@@ -18,7 +18,7 @@ WHERE status.name = 'Done';
 SELECT task.*
 FROM task
 JOIN status ON task.status_id = status.id
-WHERE status.name != 'Done';
+WHERE status.name <> 'Done';
 
 --Get all the tasks, sorted with the most recently created first.
 SELECT *
@@ -48,9 +48,11 @@ FROM status
 LEFT JOIN task ON status.id = task.status_id
 GROUP BY status.id, status.name;
 
---Get the names of all statuses, sorted by the status with most tasks first.
-SELECT status.name
-FROM status
-LEFT JOIN task ON status.id = task.status_id
+-- Get the names of all statuses, sorted by the status with most tasks first.
+SELECT
+    status.name,
+    COUNT(task.id) AS task_count
+FROM task
+JOIN status ON task.status_id = status.id
 GROUP BY status.id, status.name
 ORDER BY COUNT(task.id) DESC, status.name ASC;
