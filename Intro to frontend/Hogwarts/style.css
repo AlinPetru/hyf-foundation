@@ -1,0 +1,81 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url('background.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+
+}
+
+h1 {
+    color: #d6b45c;
+    font-size: 40px;
+}
+
+input {
+    padding: 12px;
+    width: 250px;
+    border: 2px solid #d6b45c;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    background: #d6b45c;
+    color: #151321;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#sortingHat {
+    width: 900px; height: 600px;
+    display: block;
+    margin: 10px auto;
+}
+button:hover {
+    background: #f5e6bd;
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 25px;
+    color: #d6b45c;
+    animation: appear 2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#sparkleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
